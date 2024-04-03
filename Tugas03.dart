@@ -1,17 +1,13 @@
 void main() {
-  int n = 2;
-  int m = 3;
-  String matrix = printMatrix(m, n);
-  print(matrix);
-}
+  var n = 2;
+  var m = 3;
+  String line;
 
-String printMatrix(int m, int n) {
-  String matrix = '';
-  for (int i = 0; i < m; i++) {
-    for (int j = 0; j < n; j++) {
-      matrix += '*';
+  for (int i = 1; i <= m; i++){
+    line = '';
+    for(int j = 1; j <= n; j++){
+      line += '*';
     }
-    matrix += '\n';
+    print(line);
   }
-  return matrix;
 }

@@ -1,5 +1,5 @@
 void main() {
-  var n = 75;
+  var n = 79;
   if (n >= 80) {
     print('Nilai A');
   } else if (n > 65 && n <= 79) {
