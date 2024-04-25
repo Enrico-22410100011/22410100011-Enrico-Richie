@@ -25,7 +25,8 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 class _MyHomePageState extends State<MyHomePage> {
-  TextEditingController isi = TextEditingController();
+  TextEditingController isi1 = TextEditingController();
+  TextEditingController isi2 = TextEditingController();
   TextEditingController hasil = TextEditingController();
 
   Widget build(BuildContext context) {
@@ -42,11 +43,24 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: EdgeInsets.all(10),
               margin: EdgeInsets.all(10),
               child:TextField(
-                controller: isi,
+                controller: isi1,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Isi Nama',
-                  hintText: 'Ambatron'
+                  labelText: 'Isi Nilai 1',
+                  hintText: '0 ~ 99'
+                ),
+              ),
+            ),
+
+            Container(
+              padding: EdgeInsets.all(10),
+              margin: EdgeInsets.all(10),
+              child:TextField(
+                controller: isi2,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Isi Nilai 2',
+                    hintText: '0 ~ 99'
                 ),
               ),
             ),
@@ -58,17 +72,66 @@ class _MyHomePageState extends State<MyHomePage> {
                   padding: EdgeInsets.all(10),
                   margin: EdgeInsets.all(10),
                   child:ElevatedButton(
-                  child: Text('Tampil'),
+                  child: Text('+'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
                     elevation: 0
                   ),
                     onPressed: () {
-                      var isi1 = isi.text.toString();
-                      hasil.text = isi1.toString();
+                      var tambah = int.parse(isi1.text.toString()) + int.parse(isi2.text.toString());
+                      hasil.text = tambah.toString();
                     },
                   )
-            )
+            ),
+
+                Container(
+                    padding: EdgeInsets.all(10),
+                    margin: EdgeInsets.all(10),
+                    child:ElevatedButton(
+                      child: Text('-'),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blue,
+                          elevation: 0
+                      ),
+                      onPressed: () {
+                        var kurang = int.parse(isi1.text.toString()) - int.parse(isi2.text.toString());
+                        hasil.text = kurang.toString();
+                      },
+                    )
+                ),
+
+                Container(
+                    padding: EdgeInsets.all(10),
+                    margin: EdgeInsets.all(10),
+                    child:ElevatedButton(
+                      child: Text('*'),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blue,
+                          elevation: 0
+                      ),
+                      onPressed: () {
+                        var kali = int.parse(isi1.text.toString()) * int.parse(isi2.text.toString());
+                        hasil.text = kali.toString();
+                      },
+                    )
+                ),
+
+                Container(
+                    padding: EdgeInsets.all(10),
+                    margin: EdgeInsets.all(10),
+                    child:ElevatedButton(
+                      child: Text(':'),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blue,
+                          elevation: 0
+                      ),
+                      onPressed: () {
+                        var bagi = int.parse(isi1.text.toString()) / int.parse(isi2.text.toString());
+                        hasil.text = bagi.toString();
+                      },
+                    )
+                )
+
             ],
         ),
 
